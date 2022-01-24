@@ -6,18 +6,12 @@ import {
     View,
     TextInput,
     TouchableOpacity,
-    Button,
   } from "react-native";
 
-
-const Login=(props)=>
+const Register=()=>
 {
- 
- 
-
-       
-  
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     return (
         <View style={styles.container}>
       
@@ -28,7 +22,7 @@ const Login=(props)=>
             style={styles.TextInput}
             placeholder="Email."
             placeholderTextColor="#003f5c"
-            // onChangeText={text => handleChange(text, "email")}
+            onChangeText={(email) => setEmail(email)}
           />
         </View>
   
@@ -38,21 +32,18 @@ const Login=(props)=>
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            // onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true}
+            onChangeText={(password) => setPassword(password)}
           />
         </View>
         <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}  >LOGIN</Text>
+        <Text style={styles.loginText}>Sign In</Text>
       </TouchableOpacity>
-
-       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText} onClick={() =>props.navigation.navigate("Register")}>Register</Text>
-      </TouchableOpacity> 
-    
-     </View>
+      
+  
+      </View>
 
       
     )
@@ -99,5 +90,5 @@ const styles = StyleSheet.create({
     },
   });
 
-export default Login;
+export default Register;
 
