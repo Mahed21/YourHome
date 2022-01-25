@@ -8,12 +8,40 @@ import {
     TouchableOpacity,
     Button,
   } from "react-native";
+import firebase from 'firebase/app';
+import "firebase/auth"
 
 
 const Login=(props)=>
 {
- 
- 
+          const [values, setValues] = useState({
+            email: "",
+            pwd: ""
+        })
+
+        function handleChange(text, eventName) {
+            setValues(prev => {
+                return {
+                    ...prev,
+                    [eventName]: text
+                }
+            })
+        }
+
+        function Login_form() {
+
+            const { email, pwd } = values
+
+            firebase.auth().signInWithEmailAndPassword(email, pwd)
+                .then(() => {
+                 
+                })
+                .catch((error) => {
+                    alert(error.message)
+                    // ..
+                });
+        }
+        
 
        
   
@@ -28,7 +56,7 @@ const Login=(props)=>
             style={styles.TextInput}
             placeholder="Email."
             placeholderTextColor="#003f5c"
-            // onChangeText={text => handleChange(text, "email")}
+             onChangeText={text => handleChange(text, "email")}
           />
         </View>
   
@@ -38,14 +66,14 @@ const Login=(props)=>
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            // onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true}
+             onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true}
           />
         </View>
         <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}  >LOGIN</Text>
+        <Text style={styles.loginText} onPress={()=>Login_form()} >LOGIN</Text>
       </TouchableOpacity>
 
        <TouchableOpacity style={styles.loginBtn}>
@@ -100,4 +128,6 @@ const styles = StyleSheet.create({
   });
 
 export default Login;
+
+
 

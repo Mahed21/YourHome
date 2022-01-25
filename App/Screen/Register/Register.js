@@ -7,11 +7,42 @@ import {
     TextInput,
     TouchableOpacity,
   } from "react-native";
+  import firebase from 'firebase/app';
+import "firebase/auth"
 
 const Register=()=>
 {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+          const [values, setValues] = useState({
+            email: "",
+            pwd: "",
+            pwd2: ""
+        })
+
+        function handleChange(text, eventName) {
+            setValues(prev => {
+                return {
+                    ...prev,
+                    [eventName]: text
+                }
+            })
+        }
+
+        function SignUp() {
+
+            const { email, pwd, pwd2 } = values
+
+            if (pwd == pwd2) {
+                firebase.auth().createUserWithEmailAndPassword(email, pwd)
+                    .then(() => {
+                    })
+                    .catch((error) => {
+                        alert(error.message)
+                        // ..
+                    });
+            } else {
+                alert("Passwords are different!")
+            }
+        }
     return (
         <View style={styles.container}>
       
@@ -22,7 +53,7 @@ const Register=()=>
             style={styles.TextInput}
             placeholder="Email."
             placeholderTextColor="#003f5c"
-            onChangeText={(email) => setEmail(email)}
+            onChangeText={text => handleChange(text, "email")}
           />
         </View>
   
@@ -32,14 +63,22 @@ const Register=()=>
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={(password) => setPassword(password)}
+            onChangeText={text => handleChange(text, "pwd")}
           />
         </View>
-        <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
+
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Confirm Password"
+            placeholderTextColor="#003f5c"
+            secureTextEntry={true}
+            onChangeText={text => handleChange(text, "pwd2")}
+          />
+        </View>
+
       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>Sign In</Text>
+        <Text style={styles.loginText} onPress={()=>SignUp()}>Sign In</Text>
       </TouchableOpacity>
       
   
