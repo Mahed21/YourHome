@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect} from 'react'
 import { StatusBar } from "expo-status-bar";
 import {
     StyleSheet,
@@ -8,44 +8,37 @@ import {
     TouchableOpacity,
     Button,
   } from "react-native";
-import firebase from 'firebase/app';
-import "firebase/auth"
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { auth } from '../../firebase'
 
 
 const Login=(props)=>
 {
-          const [values, setValues] = useState({
-            email: "",
-            pwd: ""
-        })
+  const navigation = useNavigation()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-        function handleChange(text, eventName) {
-            setValues(prev => {
-                return {
-                    ...prev,
-                    [eventName]: text
-                }
-            })
-        }
 
-        function Login_form() {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.replace("Home")
+      }
+    })
 
-            const { email, pwd } = values
+    return unsubscribe
+  }, [])
 
-            firebase.auth().signInWithEmailAndPassword(email, pwd)
-                .then(() => {
-                 
-                })
-                .catch((error) => {
-                    alert(error.message)
-                    // ..
-                });
-        }
-        
-
-       
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Logged in with:', user.email);
+      })
+       .catch(error => alert(error.message))
+  }
   
-
     return (
         <View style={styles.container}>
       
@@ -56,7 +49,7 @@ const Login=(props)=>
             style={styles.TextInput}
             placeholder="Email."
             placeholderTextColor="#003f5c"
-             onChangeText={text => handleChange(text, "email")}
+            onChangeText={text => setEmail(text)}
           />
         </View>
   
@@ -66,18 +59,18 @@ const Login=(props)=>
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-             onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true}
+             onChangeText={text=>setPassword(text)}
           />
         </View>
         <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText} onPress={()=>Login_form()} >LOGIN</Text>
+      <TouchableOpacity style={styles.loginBtn} >
+        <Text style={styles.loginText} onPress={handleLogin}>LOGIN</Text>
       </TouchableOpacity>
 
-       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText} onClick={() =>props.navigation.navigate("Register")}>Register</Text>
+       <TouchableOpacity style={styles.loginBtn} >
+        <Text style={styles.loginText} onPress={() =>props.navigation.navigate("Register")}>Register</Text>
       </TouchableOpacity> 
     
      </View>

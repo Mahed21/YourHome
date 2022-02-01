@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { StatusBar } from "expo-status-bar";
 import {
     StyleSheet,
@@ -7,42 +7,45 @@ import {
     TextInput,
     TouchableOpacity,
   } from "react-native";
-  import firebase from 'firebase/app';
-import "firebase/auth"
+  import { auth } from '../../../firebase'
+import { useNavigation } from '@react-navigation/native';
+
+ 
 
 const Register=()=>
 {
-          const [values, setValues] = useState({
-            email: "",
-            pwd: "",
-            pwd2: ""
-        })
+  const navigation = useNavigation()  
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [password1, setPassword1] = useState('')
 
-        function handleChange(text, eventName) {
-            setValues(prev => {
-                return {
-                    ...prev,
-                    [eventName]: text
-                }
-            })
-        }
+  
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.replace("Home")
+      }
+    })
 
-        function SignUp() {
+    return unsubscribe
+  }, [])
 
-            const { email, pwd, pwd2 } = values
+  const handleSignUp = () => {
+  
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+      })
+      .catch(error => alert(error.message))
+    }
+      
 
-            if (pwd == pwd2) {
-                firebase.auth().createUserWithEmailAndPassword(email, pwd)
-                    .then(() => {
-                    })
-                    .catch((error) => {
-                        alert(error.message)
-                        // ..
-                    });
-            } else {
-                alert("Passwords are different!")
-            }
-        }
+  
+
+        
     return (
         <View style={styles.container}>
       
@@ -53,7 +56,7 @@ const Register=()=>
             style={styles.TextInput}
             placeholder="Email."
             placeholderTextColor="#003f5c"
-            onChangeText={text => handleChange(text, "email")}
+           onChangeText={text=>setEmail(text)}
           />
         </View>
   
@@ -63,7 +66,7 @@ const Register=()=>
             placeholder="Password."
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={text => handleChange(text, "pwd")}
+            onChangeText={text=>setPassword(text)}
           />
         </View>
 
@@ -73,12 +76,12 @@ const Register=()=>
             placeholder="Confirm Password"
             placeholderTextColor="#003f5c"
             secureTextEntry={true}
-            onChangeText={text => handleChange(text, "pwd2")}
+            onChangeText={text=>setPassword1(text)}
           />
         </View>
 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText} onPress={()=>SignUp()}>Sign In</Text>
+      <TouchableOpacity style={styles.loginBtn} onPress={handleSignUp}>
+        <Text style={styles.loginText} >Sign In</Text>
       </TouchableOpacity>
       
   
