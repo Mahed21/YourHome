@@ -10,6 +10,7 @@ import Register from './App/Screen/Register/Register'
 
 
 
+
 const Stack = createNativeStackNavigator();
 
 
@@ -25,6 +26,7 @@ const App=()=> {
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
         <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
         <Stack.Screen options={{ headerShown: false }} name="Register" component={Register} />
+        
       </Stack.Navigator>
    </NavigationContainer>
   );

@@ -1,35 +1,38 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View,Image} from 'react-native'
 import Constants from 'expo-constants';
 import {auth} from '../../firebase'
 import { useNavigation } from '@react-navigation/native';
 
 
 
-const HomeScreen=()=> {
-    const navigation = useNavigation()
 
-    const handleSignOut = () => {
-        auth
-          .signOut()
-          .then(() => {
-            navigation.replace("Login")
-          })
-          .catch(error => alert(error.message))
-      }
+const HomeScreen=(props)=> {
+  const navigation = useNavigation()
+
+  const handleSignOut = () => {
+      auth
+        .signOut()
+        .then(() => {
+          navigation.replace("Login")
+        })
+        .catch(error => alert(error.message))
+    }
+   
       
     return (
       
         
      
       <View style={styles.container}>
-      <Text>Email: {auth.currentUser?.email}</Text>
-      <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-        >
-        <Text style={styles.buttonText}>Sign out</Text>
-      </TouchableOpacity>
+         <View >
+           <TouchableOpacity onPress={handleSignOut}>
+         <Image style={styles.logout_img} source = {require("../../assets/shutdown.png")}/>
+         </TouchableOpacity>
+         <Text>Email: {auth.currentUser?.email}</Text>
+        </View>
+        
+      
     </View>
     
             
@@ -43,11 +46,19 @@ const styles= StyleSheet.create({
     // },
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+         alignItems: 'center',
+         marginTop:20
       },
   
-       button: {
+     
+      logout_img:
+      {
+       marginStart:310,
+       width:50,
+       height:50,
+      
+      },
+      button: {
         backgroundColor: '#0782F9',
         width: '60%',
         padding: 15,

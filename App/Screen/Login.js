@@ -7,6 +7,7 @@ import {
     TextInput,
     TouchableOpacity,
     Button,
+    Image,
   } from "react-native";
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { auth } from '../../firebase'
@@ -42,8 +43,11 @@ const Login=(props)=>
     return (
         <View style={styles.container}>
       
-  
+         
         <StatusBar style="auto" />
+        <View >
+         <Image style={styles.img} source = {require("../../assets/profile.png")}/>
+        </View>
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
@@ -118,6 +122,13 @@ const styles = StyleSheet.create({
       marginTop: 40,
       backgroundColor: "#FF1493",
     },
+    img:
+    {
+      marginBottom:20,
+      marginStart:20,
+      width:100,
+      height:100
+    }
   });
 
 export default Login;

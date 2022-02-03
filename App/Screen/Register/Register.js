@@ -6,6 +6,7 @@ import {
     View,
     TextInput,
     TouchableOpacity,
+    Image,
   } from "react-native";
   import { auth } from '../../../firebase'
 import { useNavigation } from '@react-navigation/native';
@@ -51,7 +52,10 @@ const Register=()=>
       
   
         <StatusBar style="auto" />
-        <View style={styles.inputView}>
+        <View >
+        <Image style={styles.img1} source = {require("../../../assets/profile.png")}/>
+        </View>
+        <View  style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
             placeholder="Email."
@@ -130,6 +134,13 @@ const styles = StyleSheet.create({
       marginTop: 40,
       backgroundColor: "#FF1493",
     },
+    img1:
+    {
+      marginBottom:20,
+      marginStart:20,
+      width:100,
+      height:100
+    }
   });
 
 export default Register;
