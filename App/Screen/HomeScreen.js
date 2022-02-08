@@ -31,6 +31,11 @@ const HomeScreen=(props)=> {
          </TouchableOpacity>
          <Text>Email: {auth.currentUser?.email}</Text>
         </View>
+        <View style={styles.rent_button}>
+          <TouchableOpacity onPress={() =>props.navigation.navigate("RentData")}>
+          <Text style={styles.rent_text}>Available mess rent</Text>
+          </TouchableOpacity>
+        </View>
         
       
     </View>
@@ -71,6 +76,20 @@ const styles= StyleSheet.create({
         fontWeight: '700',
         fontSize: 16,
       },
+      rent_button:
+      {
+        width:200,
+        height:50,
+        marginTop:10,
+        backgroundColor:'crimson',
+      
+
+      },
+      rent_text:{
+        marginStart:30,
+        marginTop:15,
+
+      }
 })
 export default HomeScreen;
 
