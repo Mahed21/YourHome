@@ -1,9 +1,19 @@
-import { StyleSheet, Button, Text, View, Image, Alert } from 'react-native';
-import React from 'react';
+import { StyleSheet, Button, Text, View, Image, Alert,TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+
 
 const DisplayRentData = (props) => {
-  const { rent, img, area } = props.data;
+ 
+  const navigation = useNavigation();
+
+ 
+
+  const { rent, img, area,_id } = props.data;
   let Image_Http_URL = { uri: `${img}` };
+
+  
+
   return (
     <View style={styles.container}>
       <Image source={Image_Http_URL} style={styles.rent_img} />
@@ -11,11 +21,17 @@ const DisplayRentData = (props) => {
         <Text style={styles.rent_name} >{rent}</Text>
         <Text style={styles.rent_name}>{area}</Text>
       </View>
+
+
       <View style={styles.buttonText}>
-        <Button
-          title="Learn More"
-          onPress={() => Alert.alert('Suprise!! You got the house')}
-        />
+        
+        <TouchableOpacity>
+       <Button 
+         title='view more'
+          onPress={() =>navigation.navigate('DescriptionRent' ,{
+            id:_id})}/> 
+        </TouchableOpacity>
+       
       </View>
     </View>
 

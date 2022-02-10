@@ -74,7 +74,7 @@ const Login=(props)=>
       </TouchableOpacity>
 
        <TouchableOpacity style={styles.loginBtn} >
-        <Text style={styles.loginText} onPress={() =>props.navigation.navigate("Register")}>Register</Text>
+        <Text style={styles.loginText} onPress={() =>navigation.navigate("Register")}>Register</Text>
       </TouchableOpacity> 
     
      </View>
