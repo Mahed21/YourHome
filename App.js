@@ -8,6 +8,7 @@ import Login from './App/Screen/Login'
 import Register from './App/Screen/Register/Register'
 import RentData from './App/Screen/Rent/RentData';
 import DescriptionRent from './App/Screen/Rent/DescriptionRent';
+import PostForRent from './App/Screen/Rent/PostForRent';
 
 
 
@@ -31,6 +32,8 @@ const App=()=> {
         <Stack.Screen options={{ headerShown: false }} name="Register" component={Register} />
         <Stack.Screen options={{ headerShown: false }} name="RentData" component={RentData} />
         <Stack.Screen options={{ headerShown: false }} name="DescriptionRent" component={DescriptionRent} />
+        <Stack.Screen options={{ headerShown: false }} name="PostForRent" component={PostForRent}/>
+        
        
         
       </Stack.Navigator>
