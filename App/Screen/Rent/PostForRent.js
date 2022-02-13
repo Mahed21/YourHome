@@ -1,32 +1,41 @@
 import { StyleSheet, Text, View ,TextInput,TouchableOpacity,ScrollView} from 'react-native'
-import React, { useRef } from 'react'
+import React, { useRef,useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 
 const PostForRent = () => {
     const navigation = useNavigation()
 
-    const imgRef = useRef();
-    const areaRef = useRef();
-    const rentRef = useRef();
-    const contactRef = useRef();
-    const facilitesRef = useRef();
-    const roomRef = useRef();
-    const requirmentRef = useRef();
-    const bathRef = useRef();
+    // const imgRef = useRef();
+    // const areaRef = useRef();
+    // const rentRef = useRef();
+    // const contactRef = useRef();
+    // const facilitesRef = useRef();
+    // const roomRef = useRef();
+    // const requirmentRef = useRef();
+    // const bathRef = useRef();
+
+    const [image,setImage]= useState('');
+    const [Area,setarea]= useState('');
+    const [Rent,setrent]= useState('');
+    const [Contact,setcontact]= useState('');
+    const [Facilities,setfacilities]= useState('');
+    const [Room,setroom]= useState('');
+    const [Requirment,setrequirment]= useState('');
+    const [Bath,setbath]= useState('');
 
 
     const handleSubmit=()=>
     {
        
-        const img=imgRef.current.value;
-        const area=areaRef.current.value;
-        const rent=rentRef.current.value;
-        const contact=contactRef.current.value;
-        const facilities=facilitesRef.current.value;
-        const room=roomRef.current.value;
-        const requirment=requirmentRef.current.value;
-        const bath=bathRef.current.value;
+        const img= image;
+        const area= Area;
+        const rent= Rent;
+        const contact=Contact;
+        const facilities=Facilities;
+        const room=Room;
+        const requirment=Requirment;
+        const bath=Bath;
 
         const newUser = {img,area,rent,contact,facilities,room,requirment,bath};
         fetch('https://afternoon-ravine-00687.herokuapp.com/homes',{
@@ -67,7 +76,8 @@ const PostForRent = () => {
        placeholder = "Image Url"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={imgRef}
+    //    ref={imgRef}
+       onChangeText={text => setImage(text)}
        />
      
     
@@ -76,7 +86,8 @@ const PostForRent = () => {
        placeholder = "Location"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={areaRef}
+    //    ref={areaRef}
+    onChangeText={text => setarea(text)}
        />
 
 <TextInput style = {styles.input}
@@ -84,7 +95,8 @@ const PostForRent = () => {
        placeholder = "House Rent"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={rentRef}
+      // ref={rentRef}
+      onChangeText={text => setrent(text)}
        />
 
 
@@ -93,7 +105,8 @@ const PostForRent = () => {
        placeholder = "Number of Room"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={contactRef}
+      // ref={contactRef}
+      onChangeText={text => setcontact(text)}
        />
 
 
@@ -102,7 +115,8 @@ const PostForRent = () => {
        placeholder = "Number of Bathroom"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={facilitesRef}
+       //ref={facilitesRef}
+       onChangeText={text => setfacilities(text)}
        />
 
 
@@ -111,7 +125,8 @@ const PostForRent = () => {
        placeholder = "Total Number of Member can live"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={roomRef}
+       //ref={roomRef}
+       onChangeText={text => setroom(text)}
        />
 
 
@@ -120,7 +135,8 @@ const PostForRent = () => {
        placeholder = "What the Facilities"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={requirmentRef}
+      // ref={requirmentRef}
+      onChangeText={text => setrequirment(text)}
        />
 
 <TextInput style = {styles.input}
@@ -128,7 +144,8 @@ const PostForRent = () => {
        placeholder = "Contact Number"
        placeholderTextColor = "#9a73ef"
        autoCapitalize = "none"
-       ref={bathRef}
+       //ref={bathRef}
+       onChangeText={text => setbath(text)}
        />
       
     

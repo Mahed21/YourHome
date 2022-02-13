@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 const DescriptionRent = (props) => {
 
  const {id}=props.route.params;
+ console.log(props.route.params.id);
  const [Data,SetData]=useState();
  useEffect(()=>
  {
