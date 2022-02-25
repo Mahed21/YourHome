@@ -11,6 +11,7 @@ import DescriptionRent from './App/Screen/Rent/DescriptionRent';
 import PostForRent from './App/Screen/Rent/PostForRent';
 import Setting from './App/Screen/Setting';
 import Calculator from './App/Screen/Calculator';
+import Calendar from './App/Screen/Calendar';
 
 
 
@@ -38,6 +39,7 @@ const App = () => {
         <Stack.Screen options={{ headerShown: true }} name="PostForRent" component={PostForRent} />
         <Stack.Screen options={{ headerShown: true }} name="Setting" component={Setting} />
         <Stack.Screen options={{ headerShown: true }} name="Calculator" component={Calculator} />
+        <Stack.Screen options={{ headerShown: true }} name="Calendar" component={Calendar} />
 
 
 

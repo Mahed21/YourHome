@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, Image,ScrollView } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, Image, ScrollView } from 'react-native'
 import Constants from 'expo-constants';
 import { auth } from '../../firebase'
 import { useNavigation } from '@react-navigation/native';
@@ -23,75 +23,75 @@ const HomeScreen = (props) => {
   return (
 
 
-    
+
     <ScrollView >
-     
-       <TouchableOpacity onPress={() =>navigation.navigate("Setting")}>
-          <Image style={styles.setting_icon} source={require("../../assets/setting-3.png")} />
-       </TouchableOpacity>
-       
+
+      <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
+        <Image style={styles.setting_icon} source={require("../../assets/setting-3.png")} />
+      </TouchableOpacity>
+
 
       <View style={styles.container}>
-      <View>
-        <Text style={styles.titleText}>YourHome</Text>
-      </View>
+        <View>
+          <Text style={styles.titleText}>YourHome</Text>
+        </View>
 
-      <View >
-        <Text>Email: {auth.currentUser?.email}</Text>
-      </View>
+        <View >
+          <Text>Email: {auth.currentUser?.email}</Text>
+        </View>
 
-      <View style={styles.rent_button}>
-        <TouchableOpacity onPress={() =>navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Available mess rent</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.rent_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <Text style={styles.rent_text}>Available mess rent</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.rent_button}>
-        <TouchableOpacity onPress={() =>navigation.navigate("PostForRent")}>
-          <Text style={styles.rent_text}>Post For Rent</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.rent_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("PostForRent")}>
+            <Text style={styles.rent_text}>Post For Rent</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Meal Count</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Total Expenses</Text>
-        </TouchableOpacity>
-      </View>
-     
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Notepad</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <Text style={styles.rent_text}>Meal Count</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <Text style={styles.rent_text}>Total Expenses</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("Calculator")}>
-          <Text style={styles.rent_text}>Calculator</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <Text style={styles.rent_text}>Notepad</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Calendar</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("Calculator")}>
+            <Text style={styles.rent_text}>Calculator</Text>
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.other_button}>
-        <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-          <Text style={styles.rent_text}>Announcement</Text>
-        </TouchableOpacity>
-      </View>
-      <View >
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
+            <Text style={styles.rent_text}>Calendar</Text>
+          </TouchableOpacity>
+        </View>
 
-        {/* <TouchableOpacity onPress={handleSignOut}>
+        <View style={styles.other_button}>
+          <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <Text style={styles.rent_text}>Announcement</Text>
+          </TouchableOpacity>
+        </View>
+        <View >
+
+          {/* <TouchableOpacity onPress={handleSignOut}>
           <Image style={styles.logout_img} source={require("../../assets/shutdown.png")} />
         </TouchableOpacity> */}
-      </View>
+        </View>
       </View>
     </ScrollView >
   )
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   logout_img:
   {
-    
+
     marginTop: 50,
     width: 50,
     height: 50,
@@ -156,9 +156,9 @@ const styles = StyleSheet.create({
   },
   setting_icon:
   {
-   
+
     marginTop: 20,
-    marginLeft:355,
+    marginLeft: 355,
     width: 30,
     height: 30,
   }
