@@ -10,14 +10,14 @@ import { useNavigation } from '@react-navigation/native';
 const HomeScreen = (props) => {
   const navigation = useNavigation()
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace("Login")
-      })
-      .catch(error => alert(error.message))
-  }
+  // const handleSignOut = () => {
+  //   auth
+  //     .signOut()
+  //     .then(() => {
+  //       navigation.replace("Login")
+  //     })
+  //     .catch(error => alert(error.message))
+  // }
 
 
   return (
@@ -25,6 +25,12 @@ const HomeScreen = (props) => {
 
     
     <ScrollView >
+     
+       <TouchableOpacity onPress={() =>navigation.navigate("Setting")}>
+          <Image style={styles.setting_icon} source={require("../../assets/setting-3.png")} />
+       </TouchableOpacity>
+       
+
       <View style={styles.container}>
       <View>
         <Text style={styles.titleText}>YourHome</Text>
@@ -82,9 +88,9 @@ const HomeScreen = (props) => {
       </View>
       <View >
 
-        <TouchableOpacity onPress={handleSignOut}>
+        {/* <TouchableOpacity onPress={handleSignOut}>
           <Image style={styles.logout_img} source={require("../../assets/shutdown.png")} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       </View>
     </ScrollView >
@@ -107,7 +113,7 @@ const styles = StyleSheet.create({
   },
   logout_img:
   {
-    alignItems: 'center',
+    
     marginTop: 50,
     width: 50,
     height: 50,
@@ -147,7 +153,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#000000',
     marginTop: 25
+  },
+  setting_icon:
+  {
+   
+    marginTop: 20,
+    marginLeft:355,
+    width: 30,
+    height: 30,
   }
 })
 export default HomeScreen;
-
