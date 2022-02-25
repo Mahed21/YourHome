@@ -10,6 +10,7 @@ import RentData from './App/Screen/Rent/RentData';
 import DescriptionRent from './App/Screen/Rent/DescriptionRent';
 import PostForRent from './App/Screen/Rent/PostForRent';
 import Setting from './App/Screen/Setting';
+import Calculator from './App/Screen/Calculator';
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
         <Stack.Screen options={{ headerShown: true }} name="DescriptionRent" component={DescriptionRent} />
         <Stack.Screen options={{ headerShown: true }} name="PostForRent" component={PostForRent} />
         <Stack.Screen options={{ headerShown: true }} name="Setting" component={Setting} />
+        <Stack.Screen options={{ headerShown: true }} name="Calculator" component={Calculator} />
 
 
 
