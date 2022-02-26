@@ -32,7 +32,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={Login} />
-        <Stack.Screen options={{ headerShown: true }} name="Home" component={HomeScreen} />
+        <Stack.Screen options={{ headerShown: false }} name="Home" component={HomeScreen} />
         <Stack.Screen options={{ headerShown: true }} name="Register" component={Register} />
         <Stack.Screen options={{ headerShown: true }} name="RentData" component={RentData} />
         <Stack.Screen options={{ headerShown: true }} name="DescriptionRent" component={DescriptionRent} />
