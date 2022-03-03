@@ -21,13 +21,17 @@ const Setting = () => {
       })
       .catch(error => alert(error.message))
   }
+
+  
   
 
   return (
     <View>
       {/* div brefore first horizental break */}
        <View style={styles.container}>
-         <Image style={styles.setting_img} source = {require("../../assets/profile.png")}/>
+         <Image style={styles.setting_img} source={{
+          uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
+        }}/>
          <Text style={styles.setting_user_email}>Email: {auth.currentUser?.email}</Text>
         
         </View>
@@ -40,7 +44,9 @@ const Setting = () => {
           
           <TouchableOpacity onPress={() =>navigation.navigate("Home")}>
           <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/home.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/3W5D6Qy/home.png'
+        }} />
           <Text style={styles.setting_Text}>Home</Text>
           </View>
           </TouchableOpacity>
@@ -48,7 +54,9 @@ const Setting = () => {
           
           <TouchableOpacity onPress={() =>navigation.navigate("RentData")}>
           <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/rent.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/zSJ7QQz/rent.png'
+        }} />
           <Text style={styles.setting_Text}>Home Rent</Text>
           </View>
           </TouchableOpacity>
@@ -56,18 +64,24 @@ const Setting = () => {
 
           <TouchableOpacity onPress={() =>navigation.navigate("PostForRent")}>
          <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/meal.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/zSJ7QQz/rent.png'
+        }} />
           <Text style={styles.setting_Text}>Post your Home</Text>
           </View>
           </TouchableOpacity>
 
           <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/count.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/x3p9cSj/count.png'
+        }} />
           <Text style={styles.setting_Text}>Total Meal</Text>
           </View>
 
           <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/setting_profile.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
+        }} />
           <Text style={styles.setting_Text}>Add Meal (Only for Admin)</Text>
           </View>
           {/* div brefore second horizental break end*/}
@@ -78,7 +92,9 @@ const Setting = () => {
           {/* after second horizental*/}
          <TouchableOpacity onPress={handleSignOut}>
          <View style={styles.row}>
-          <Image style={styles.icon} source={require("../../assets/logout.png")} />
+          <Image style={styles.icon} source={{
+          uri: 'https://i.ibb.co/CMqDBcR/logout.png'
+        }}/>
           <Text style={styles.setting_Text}>Logout</Text>
          </View>
          </TouchableOpacity>

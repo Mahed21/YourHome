@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const HomeScreen = (props) => {
   const navigation = useNavigation()
   const image = { uri: "https://images.pexels.com/photos/5253574/pexels-photo-5253574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" };
+ 
 
 
 
@@ -23,11 +24,13 @@ const HomeScreen = (props) => {
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <View style={styles.position_icon}>
       <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
-        <Image style={styles.setting_icon} source={require("../../assets/setting-3.png")} />
+        <Image style={styles.setting_icon} source={{
+          uri: 'https://i.ibb.co/c2dcCfw/setting-3.png',
+        }}/>
       </TouchableOpacity>
       </View>
         <View style={styles.position_Text}>
-        <View >
+        <View>
          <Text style={styles.titleText}>YourHome</Text>
         </View>
 
