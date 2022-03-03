@@ -7,7 +7,7 @@ const RentData = () => {
     const [Data, SetData]=useState([]);
     useEffect(()=>
     {
-        fetch('https://afternoon-ravine-00687.herokuapp.com/homes')
+        fetch('https://quiet-lowlands-93783.herokuapp.com/homes')
         .then(res=>res.json())
         .then(data=>SetData(data));
     },[])

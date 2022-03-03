@@ -9,7 +9,7 @@ const DescriptionRent = (props) => {
   console.log(props.route.params.id);
   const [Data, SetData] = useState();
   useEffect(() => {
-    fetch(`https://afternoon-ravine-00687.herokuapp.com/homes/${id}`)
+    fetch(`https://quiet-lowlands-93783.herokuapp.com/homes/${id}`)
       .then(res => res.json())
       .then(data => SetData(data));
   }, [])

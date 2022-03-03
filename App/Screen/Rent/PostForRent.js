@@ -38,7 +38,7 @@ const PostForRent = () => {
         const bath=Bath;
 
         const newUser = {img,area,rent,contact,facilities,room,requirment,bath};
-        fetch('https://afternoon-ravine-00687.herokuapp.com/homes',{
+        fetch('https://quiet-lowlands-93783.herokuapp.com/homes',{
         method:'POST',
         headers:{
             'content-type':'application/json'

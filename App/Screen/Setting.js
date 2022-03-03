@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View ,Image,TouchableOpacity} from 'react-native'
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { auth } from '../../firebase'
 import { Divider } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
@@ -12,7 +12,8 @@ import { useNavigation } from '@react-navigation/native';
 const Setting = () => {
   const navigation = useNavigation()
 
-  
+   const [Admin,setAdmin]=useState(false)
+
   const handleSignOut = () => {
     auth
       .signOut()
@@ -21,6 +22,29 @@ const Setting = () => {
       })
       .catch(error => alert(error.message))
   }
+
+  
+  useEffect(() => {
+    
+    fetch('https://quiet-lowlands-93783.herokuapp.com/member')
+        .then(res=>res.json())
+        .then(data=>{
+           for(var i=0; i<data.length; i++)
+           {
+               if(data[i].email===auth.currentUser?.email){
+               console.log(data[i].role);
+               if(data[i].role){
+                   setAdmin(true)
+                   return;
+               }
+               }
+               else
+               {
+                   setAdmin(false)
+               }
+           }
+        })
+      }, [])
 
   
   
@@ -82,11 +106,30 @@ const Setting = () => {
           <Image style={styles.icon} source={{
           uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
         }} />
-          <Text style={styles.setting_Text}>Add Meal (Only for Admin)</Text>
+          <Text style={styles.setting_Text}>Add Meal</Text>
           </View>
+
+         {
+           Admin?
+           <TouchableOpacity onPress={() =>navigation.navigate("AddMember")}>
+           <View style={styles.row}>
+           <Image style={styles.icon} source={{
+           uri: 'https://i.ibb.co/4FGZBmp/3631618.png'
+         }}/>
+           <Text style={styles.setting_Text}>Add Member</Text>
+           </View></TouchableOpacity>:<Text></Text>
+         }
+         
+
           {/* div brefore second horizental break end*/}
-
-
+          {/* mess All member */}
+          <TouchableOpacity onPress={() =>navigation.navigate("MessMember")}>
+           <View style={styles.row}>
+           <Image style={styles.icon} source={{
+           uri: 'https://i.ibb.co/4FGZBmp/3631618.png'
+         }}/>
+           <Text style={styles.setting_Text}>All Member</Text>
+           </View></TouchableOpacity>
           <Divider style={{ backgroundColor: 'black',height:2,marginTop:30 }} />
           
           {/* after second horizental*/}
@@ -102,8 +145,7 @@ const Setting = () => {
         </View>
         
 
-        
-
+      
   
        
   
