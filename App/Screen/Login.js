@@ -88,7 +88,7 @@ const Login = (props) => {
         <View style={styles.iconStyle}>
           <AntDesign name={'login'} size={25} color="#666" />
         </View>
-        <Text style={styles.loginText} onPress={handleLogin}>LOGIN</Text>
+        <Text style={styles.loginText} onPress={handleLogin}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.regBtn} >
         <View style={styles.iconStyle}>
