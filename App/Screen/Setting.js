@@ -101,12 +101,14 @@ const Setting = () => {
             <Text style={styles.setting_Text}>Total Meal</Text>
           </View>
 
-          <View style={styles.row}>
-            <Image style={styles.icon} source={{
-              uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
-            }} />
-            <Text style={styles.setting_Text}>Add Meal</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate("AddMeal")}>
+            <View style={styles.row}>
+              <Image style={styles.icon} source={{
+                uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
+              }} />
+              <Text style={styles.setting_Text}>Add Meal</Text>
+            </View>
+          </TouchableOpacity>
 
           {
             Admin ?

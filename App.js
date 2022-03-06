@@ -14,6 +14,7 @@ import Calculator from './App/Screen/Calculator';
 import Calendar from './App/Screen/Calendar';
 import MessMember from './App/Screen/MessMember';
 import AddMember from './App/Screen/AddMember';
+import AddMeal from './App/Screen/AddMeal';
 
 
 
@@ -45,7 +46,8 @@ const App = () => {
         <Stack.Screen options={{ headerShown: true }} name="Calendar" component={Calendar} />
         <Stack.Screen options={{ headerShown: false }} name="AddMember" component={AddMember} />
         <Stack.Screen options={{ headerShown: false }} name="MessMember" component={MessMember} />
-       
+        <Stack.Screen options={{ headerShown: true }} name="AddMeal" component={AddMeal} />
+
 
 
 
