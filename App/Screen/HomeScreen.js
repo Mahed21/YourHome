@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
   home_row:
   {
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap: "wrap"
   },
 
