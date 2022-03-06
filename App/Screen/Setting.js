@@ -121,6 +121,17 @@ const Setting = () => {
                 </View></TouchableOpacity> : <Text></Text>
           }
 
+            {
+            Admin ?
+              <TouchableOpacity onPress={() => navigation.navigate("Expense")}>
+                <View style={styles.row}>
+                  <Image style={styles.icon} source={{
+                    uri: 'https://i.ibb.co/x3p9cSj/count.png'
+                  }} />
+                  <Text style={styles.setting_Text}>Expense</Text>
+                </View></TouchableOpacity> : <Text></Text>
+           }
+
 
           {/* div brefore second horizental break end*/}
           {/* mess All member */}

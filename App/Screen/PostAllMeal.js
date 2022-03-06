@@ -21,11 +21,6 @@ const PostAllMeal = (props) => {
     const [Meal, setMeal] = useState();
 
     const handleMeal = () => {
-        // console.log(Meal);
-        // console.log(name);
-        // console.log(props.date)
-        // console.log(props.month)
-        // console.log(props.year);
         const name = Name;
         const meal = Meal;
         const month = props.month
