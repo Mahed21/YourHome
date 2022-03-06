@@ -48,7 +48,7 @@ const PostForRent = () => {
          .then(data => {
             if (data.insertedId) {
                alert('Thank you for choose us your data is Successfully Collected');
-               navigation.replace("Home")
+               navigation.replace("RentData")
             }
          })
    }
@@ -59,29 +59,21 @@ const PostForRent = () => {
       <ScrollView>
          <View style={styles.container}>
             <Text
-               style={{
-                  marginTop: 20,
-                  marginBottom: 10,
-                  color: 'black',
-                  fontSize: 25,
-                  fontWeight: "bold",
-                  alignSelf: "center",
-               }}>Give Your Home For Rent</Text>
+               style={styles.headerText}>Post Your Home For Rent</Text>
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'link'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
                   placeholder="Image Url"
                   autoCapitalize="none"
-                  //    ref={imgRef}
                   onChangeText={text => setImage(text)}
                />
             </View>
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'enviromento'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -93,7 +85,7 @@ const PostForRent = () => {
             </View>
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'creditcard'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -106,7 +98,7 @@ const PostForRent = () => {
 
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'switcher'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -118,7 +110,7 @@ const PostForRent = () => {
             </View>
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'skin'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -131,7 +123,7 @@ const PostForRent = () => {
 
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'team'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -144,7 +136,7 @@ const PostForRent = () => {
 
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'carryout'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -156,7 +148,7 @@ const PostForRent = () => {
             </View>
             <View style={styles.inputView}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'lock'} size={25} color="#666" />
+                  <AntDesign name={'contacts'} size={25} color="#666" />
                </View>
                <TextInput style={styles.TextInput}
                   underlineColorAndroid="transparent"
@@ -169,7 +161,7 @@ const PostForRent = () => {
 
             <TouchableOpacity style={styles.loginBtn} onPress={handleSubmit}>
                <View style={styles.iconStyle}>
-                  <AntDesign name={'login'} size={25} color="#666" />
+                  <AntDesign name={'checksquareo'} size={25} color="#666" />
                </View>
                <Text style={styles.loginText}> Submit </Text>
             </TouchableOpacity>
@@ -187,6 +179,12 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       padding: 20
+   },
+   headerText: {
+      marginBottom: 10,
+      color: 'black',
+      fontSize: 25,
+      fontWeight: "bold",
    },
    inputView: {
       marginTop: 5,
