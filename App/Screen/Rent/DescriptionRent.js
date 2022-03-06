@@ -1,6 +1,7 @@
 
 import { StyleSheet, Text, View, Image, Button, Alert, Modal } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const DescriptionRent = (props) => {
@@ -19,27 +20,28 @@ const DescriptionRent = (props) => {
 
 
   return (
+    <ScrollView>
+      <View style={styles.info}>
+        <Image source={Image_Http_URL} style={styles.rent_full_img} />
 
-    <View style={styles.info}>
-      <Image source={Image_Http_URL} style={styles.rent_full_img} />
+        <View style={styles.text}>
+          <Text>Address: {Data?.area}</Text>
+          <Text>Rent: {Data?.rent}</Text>
+          <Text>Rooms: {Data?.room}</Text>
+          <Text>Available Room(s): {Data?.bath}</Text>
+          <Text>Available Seat(s): {Data?.requirment}</Text>
+          <Text>Ammenities: {Data?.facilities}</Text>
+        </View>
 
-      <View style={styles.text}>
-        <Text>Address: {Data?.area}</Text>
-        <Text>Rent: {Data?.rent}</Text>
-        <Text>Rooms: {Data?.room}</Text>
-        <Text>Available Room(s): {Data?.bath}</Text>
-        <Text>Available Seat(s): {Data?.requirment}</Text>
-        <Text>Ammenities: {Data?.facilities}</Text>
+        <View style={styles.contact}>
+          <Button
+            title="Contact"
+            color={'#00805a'}
+            onPress={() => Alert.alert(Data.contact)}
+          />
+        </View>
       </View>
-
-      <View style={styles.contact}>
-        <Button
-          title="Contact"
-          color={'#00805a'}
-          onPress={() => Alert.alert(Data.contact)}
-        />
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
