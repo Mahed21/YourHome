@@ -31,7 +31,7 @@ const Setting = () => {
       .then(data => {
         for (var i = 0; i < data.length; i++) {
           if (data[i].email === auth.currentUser?.email) {
-            console.log(data[i].role);
+           // console.log(data[i].role);
             if (data[i].role) {
               setAdmin(true)
               return;
