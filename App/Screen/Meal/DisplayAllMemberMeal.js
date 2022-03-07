@@ -16,14 +16,15 @@ const DisplayAllMemberMeal = (props) => {
             {
                 if(data[i].name===name)
                 {
+                  console.log(data[i].meal)
                    
                     if(data[i].year==props.year && data[i].month.toLowerCase()===props.month.toLowerCase())
                     {
                        c+=parseInt(data[i].meal);
-                       setCount(c.toString());
-                      
+                        setCount(c.toString());
                        
-                    }
+                        
+                     }
                 }
             }
         })
@@ -33,7 +34,7 @@ const DisplayAllMemberMeal = (props) => {
 
   return (
     <View>
-       
+      
       <View style={styles.expense}>
           {/* input month */}
           <View style={styles.inputView}>

@@ -16,12 +16,11 @@ import AddMeal from "./AddMeal";
 const PostAllMeal = (props) => {
 
     const navigation = useNavigation()
-    const { name, email } = props.data;
-    const [Name, setName] = useState();
+    const {  email } = props.data;
     const [Meal, setMeal] = useState();
 
     const handleMeal = () => {
-        const name = Name;
+        const name = props.data.name;
         const meal = Meal;
         const month = props.month
         const day = props.date
@@ -55,7 +54,7 @@ const PostAllMeal = (props) => {
         </View> */}
                 <TextInput
                     style={styles.TextInput}
-                    value={name}
+                    value={props.data.name}
                     placeholderTextColor="#003f5c"
 
                 />
