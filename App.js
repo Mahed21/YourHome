@@ -16,6 +16,7 @@ import MessMember from './App/Screen/MessMember';
 import AddMember from './App/Screen/AddMember';
 import AddMeal from './App/Screen/AddMeal';
 import Expense from './App/Screen/Expense/Expense';
+import TotalExpense from './App/Screen/Expense/TotalExpense';
 
 
 
@@ -49,6 +50,7 @@ const App = () => {
         <Stack.Screen options={{ headerShown: false }} name="MessMember" component={MessMember} />
         <Stack.Screen options={{ headerShown: true }} name="AddMeal" component={AddMeal} />
         <Stack.Screen options={{ headerShown: false }} name="Expense" component={Expense} />
+        <Stack.Screen options={{ headerShown: false }} name="TotalExpense" component={TotalExpense} />
 
 
 

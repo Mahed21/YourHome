@@ -85,6 +85,8 @@ const Expense = () => {
         <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
+          multiline={true}
+          numberOfLines={4}
           placeholder="Expense List"
           placeholderTextColor="#003f5c"
           onChangeText={text => setExpense(text)}

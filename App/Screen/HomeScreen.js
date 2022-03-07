@@ -67,7 +67,7 @@ const HomeScreen = (props) => {
             </TouchableOpacity>
           </View>
           <View style={styles.rent_button}>
-            <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <TouchableOpacity onPress={() => navigation.navigate("TotalExpense")}>
               <Text style={styles.rent_text}>Total Expenses</Text>
             </TouchableOpacity>
           </View>
@@ -75,9 +75,9 @@ const HomeScreen = (props) => {
 
 
         <View style={styles.home_row}>
-          <View style={styles.rent_button}>
-            <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-              <Text style={styles.rent_text}>Notepad</Text>
+        <View style={styles.rent_button}>
+            <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
+              <Text style={styles.rent_text}>Calendar</Text>
             </TouchableOpacity>
           </View>
 
@@ -88,23 +88,7 @@ const HomeScreen = (props) => {
           </View>
         </View>
 
-        <View style={styles.home_row}>
-          <View style={styles.rent_button}>
-            <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
-              <Text style={styles.rent_text}>Calendar</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.rent_button}>
-            <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
-              <Text style={styles.rent_text}>Announcement</Text>
-            </TouchableOpacity>
-          </View>
-          <View >
-          </View>
-
-
-        </View>
+     
       </View>
     </ScrollView >
   )
@@ -115,8 +99,8 @@ const styles = StyleSheet.create({
   //     paddingLeft:8,
   // },
   container: {
+    paddingTop:'20%',
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
 
   },
@@ -147,7 +131,7 @@ const styles = StyleSheet.create({
   },
   home_row:
   {
-    flexDirection: "column",
+    flexDirection: "row",
     flexWrap: "wrap"
   },
 
