@@ -62,7 +62,7 @@ const HomeScreen = (props) => {
 
         <View style={styles.home_row}>
           <View style={styles.rent_button}>
-            <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Search")}>
               <Text style={styles.rent_text}>Meal Count</Text>
             </TouchableOpacity>
           </View>

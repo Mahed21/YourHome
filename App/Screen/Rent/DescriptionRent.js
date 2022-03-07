@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 const DescriptionRent = (props) => {
 
   const { id } = props.route.params;
-  console.log(props.route.params.id);
+  //console.log(props.route.params.id);
   const [Data, SetData] = useState();
   useEffect(() => {
     fetch(`https://quiet-lowlands-93783.herokuapp.com/homes/${id}`)

@@ -17,6 +17,8 @@ import AddMember from './App/Screen/AddMember';
 import AddMeal from './App/Screen/AddMeal';
 import Expense from './App/Screen/Expense/Expense';
 import TotalExpense from './App/Screen/Expense/TotalExpense';
+import Search from './App/Screen/Meal/Search';
+import MemberMeal from './App/Screen/Meal/MemberMeal';
 
 
 
@@ -51,6 +53,8 @@ const App = () => {
         <Stack.Screen options={{ headerShown: true }} name="AddMeal" component={AddMeal} />
         <Stack.Screen options={{ headerShown: false }} name="Expense" component={Expense} />
         <Stack.Screen options={{ headerShown: false }} name="TotalExpense" component={TotalExpense} />
+        <Stack.Screen options={{ headerShown: false }} name="Search" component={Search} />
+        <Stack.Screen options={{ headerShown: false }} name="MemberMeal" component={MemberMeal} />
 
 
 
