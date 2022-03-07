@@ -22,7 +22,7 @@ const HomeScreen = (props) => {
 
     <ScrollView >
       <View >
-        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <ImageBackground source={image} resizeMode="cover" style={styles.image} imageStyle={{ borderBottomStartRadius: 20, borderBottomEndRadius: 20 }}>
           <View style={styles.position_icon}>
             <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
               <AntDesign name={'setting'} size={25} color="#000000" />
@@ -75,7 +75,7 @@ const HomeScreen = (props) => {
 
 
         <View style={styles.home_row}>
-        <View style={styles.rent_button}>
+          <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
               <Text style={styles.rent_text}>Calendar</Text>
             </TouchableOpacity>
@@ -88,7 +88,7 @@ const HomeScreen = (props) => {
           </View>
         </View>
 
-     
+
       </View>
     </ScrollView >
   )
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   //     paddingLeft:8,
   // },
   container: {
-    paddingTop:'20%',
+    paddingTop: '20%',
     flex: 1,
     alignItems: 'center',
 
@@ -107,17 +107,18 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
 
-    height: 200,
+    height: 150,
+
   },
 
   titleText: {
-    fontSize: 24,
+    fontSize: 30,
     marginBottom: 10,
     paddingLeft: 30,
     color: 'white',
   },
   title_email: {
-
+    fontSize: 20,
     paddingLeft: 30,
     color: 'white',
 
@@ -140,17 +141,17 @@ const styles = StyleSheet.create({
   rent_button:
   {
     width: 180,
-    height: 70,
-    marginTop: 20,
+    height: 100,
+    marginTop: 10,
     borderRadius: 10,
     marginStart: 8,
     marginEnd: 10,
-    backgroundColor: 'crimson',
+    backgroundColor: '#e6eaf4',
   },
   rent_text: {
     textAlign: 'center',
-    color: 'white',
-    marginTop: 25,
+    color: 'black',
+    marginTop: 40,
 
   },
   setting_icon:
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
 
     alignItems: 'flex-end',
     paddingEnd: 10,
-    paddingTop: 10
+    marginTop: 30
 
   }
 })
