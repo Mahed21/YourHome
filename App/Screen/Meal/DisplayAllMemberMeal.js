@@ -31,6 +31,7 @@ const DisplayAllMemberMeal = (props) => {
     
     
 
+  return (
     <View>
        
       <View style={styles.expense}>
