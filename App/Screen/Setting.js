@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { auth } from '../../firebase'
 import { Divider } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
@@ -31,7 +32,7 @@ const Setting = () => {
       .then(data => {
         for (var i = 0; i < data.length; i++) {
           if (data[i].email === auth.currentUser?.email) {
-           // console.log(data[i].role);
+            // console.log(data[i].role);
             if (data[i].role) {
               setAdmin(true)
               return;
@@ -52,24 +53,24 @@ const Setting = () => {
       <View>
         {/* div brefore first horizental break */}
         <View style={styles.container}>
-          <Image style={styles.setting_img} source={{
-            uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
-          }} />
+          <View style={styles.iconStyle}>
+            <MaterialCommunityIcons name={'account'} size={50} color="#000000" />
+          </View>
           <Text style={styles.setting_user_email}>Email: {auth.currentUser?.email}</Text>
 
         </View>
         {/* div brefore first horizental break end*/}
 
-        <Divider style={{ backgroundColor: 'black', height: 2, marginTop: 30 }} />
+        <Divider style={{ backgroundColor: 'black', height: 2, }} />
 
         {/* div brefore second horizental break*/}
         <View style={{ marginLeft: 10 }}>
 
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/3W5D6Qy/home.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'home-outline'} size={33} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>Home</Text>
             </View>
           </TouchableOpacity>
@@ -77,9 +78,9 @@ const Setting = () => {
 
           <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/zSJ7QQz/rent.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'home-city-outline'} size={30} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>Home Rent</Text>
             </View>
           </TouchableOpacity>
@@ -87,69 +88,69 @@ const Setting = () => {
 
           <TouchableOpacity onPress={() => navigation.navigate("PostForRent")}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/zSJ7QQz/rent.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'domain-plus'} size={33} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>Post your Home</Text>
             </View>
           </TouchableOpacity>
 
           <View style={styles.row}>
-            <Image style={styles.icon} source={{
-              uri: 'https://i.ibb.co/x3p9cSj/count.png'
-            }} />
+            <View style={styles.iconStyle}>
+              <MaterialCommunityIcons name={'food'} size={35} color="#000000" />
+            </View>
             <Text style={styles.setting_Text}>Total Meal</Text>
           </View>
 
           <TouchableOpacity onPress={() => navigation.navigate("AddMeal")}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/QpNhm72/setting-profile.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'food-fork-drink'} size={33} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>Add Meal</Text>
             </View>
           </TouchableOpacity>
-
+          {
+            Admin ?
+              <TouchableOpacity onPress={() => navigation.navigate("Expense")}>
+                <View style={styles.row}>
+                  <View style={styles.iconStyle}>
+                    <MaterialCommunityIcons name={'account-cash'} size={33} color="#000000" />
+                  </View>
+                  <Text style={styles.setting_Text}>Expense</Text>
+                </View></TouchableOpacity> : <Text></Text>
+          }
           {
             Admin ?
               <TouchableOpacity onPress={() => navigation.navigate("AddMember")}>
                 <View style={styles.row}>
-                  <Image style={styles.icon} source={{
-                    uri: 'https://i.ibb.co/4FGZBmp/3631618.png'
-                  }} />
+                  <View style={styles.iconStyle}>
+                    <MaterialCommunityIcons name={'account-multiple-plus'} size={33} color="#000000" />
+                  </View>
                   <Text style={styles.setting_Text}>Add Member</Text>
                 </View></TouchableOpacity> : <Text></Text>
           }
 
-            {
-            Admin ?
-              <TouchableOpacity onPress={() => navigation.navigate("Expense")}>
-                <View style={styles.row}>
-                  <Image style={styles.icon} source={{
-                    uri: 'https://i.ibb.co/x3p9cSj/count.png'
-                  }} />
-                  <Text style={styles.setting_Text}>Expense</Text>
-                </View></TouchableOpacity> : <Text></Text>
-           }
+
 
 
           {/* div brefore second horizental break end*/}
           {/* mess All member */}
           <TouchableOpacity onPress={() => navigation.navigate("MessMember")}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/4FGZBmp/3631618.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'account-group'} size={33} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>All Member</Text>
             </View></TouchableOpacity>
-          <Divider style={{ backgroundColor: 'black', height: 2, marginTop: 30 }} />
+          <Divider style={{ backgroundColor: 'black', height: 2, }} />
 
           {/* after second horizental*/}
           <TouchableOpacity onPress={handleSignOut}>
             <View style={styles.row}>
-              <Image style={styles.icon} source={{
-                uri: 'https://i.ibb.co/CMqDBcR/logout.png'
-              }} />
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'logout'} size={33} color="#000000" />
+              </View>
               <Text style={styles.setting_Text}>Logout</Text>
             </View>
           </TouchableOpacity>
@@ -172,42 +173,36 @@ const styles = StyleSheet.create({
   container:
   {
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    flex: 1,
+    alignItems: 'center'
   },
-  setting_img:
-  {
 
-    marginStart: 20,
-    marginTop: 20,
-    width: 70,
-    height: 70
-  },
   setting_user_email:
   {
-
-    marginStart: 30,
-    marginTop: 40,
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 20,
+
   },
   setting_Text: {
     color: 'black',
-    fontSize: 17,
-    marginTop: 35,
+    fontSize: 22,
     marginStart: 10
 
   },
-  icon:
-  {
-    marginTop: 30,
-    marginStart: 5,
-    width: 30,
-    height: 30
+
+  iconStyle: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+
   row: {
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    flex: 1,
+    alignItems: 'center',
   }
 
 })

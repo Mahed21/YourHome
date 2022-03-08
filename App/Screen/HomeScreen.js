@@ -4,13 +4,14 @@ import Constants from 'expo-constants';
 import { auth } from '../../firebase'
 import { useNavigation } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
 
 const HomeScreen = (props) => {
   const navigation = useNavigation()
-  const image = { uri: "https://images.pexels.com/photos/5253574/pexels-photo-5253574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" };
+  const image = { uri: "https://cdn.pixabay.com/photo/2017/06/14/01/43/background-2400765_960_720.jpg" };
 
 
 
@@ -25,7 +26,7 @@ const HomeScreen = (props) => {
         <ImageBackground source={image} resizeMode="cover" style={styles.image} imageStyle={{ borderBottomStartRadius: 20, borderBottomEndRadius: 20 }}>
           <View style={styles.position_icon}>
             <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
-              <AntDesign name={'setting'} size={25} color="#000000" />
+              <AntDesign name={'setting'} size={28} color="#fff" />
             </TouchableOpacity>
           </View>
           <View style={styles.position_Text}>
@@ -48,11 +49,17 @@ const HomeScreen = (props) => {
         <View style={styles.home_row}>
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("RentData")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'home-outline'} size={33} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Available mess rent</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("PostForRent")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'domain-plus'} size={30} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Post For Rent</Text>
             </TouchableOpacity>
           </View>
@@ -63,11 +70,17 @@ const HomeScreen = (props) => {
         <View style={styles.home_row}>
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'food-fork-drink'} size={30} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Meal Count</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("TotalExpense")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'account-cash'} size={30} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Total Expenses</Text>
             </TouchableOpacity>
           </View>
@@ -77,12 +90,18 @@ const HomeScreen = (props) => {
         <View style={styles.home_row}>
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'calendar'} size={30} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Calendar</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.rent_button}>
             <TouchableOpacity onPress={() => navigation.navigate("Calculator")}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'calculator'} size={30} color="#000000" />
+              </View>
               <Text style={styles.rent_text}>Calculator</Text>
             </TouchableOpacity>
           </View>
@@ -102,11 +121,11 @@ const styles = StyleSheet.create({
     paddingTop: '20%',
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center'
 
   },
   image: {
     flex: 1,
-
     height: 150,
 
   },
@@ -136,12 +155,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap"
   },
 
-
-
   rent_button:
   {
-    width: 180,
-    height: 100,
+    borderWidth: 3,
+    borderColor: '#B8BBC3',
+    width: 160,
+    height: 90,
     marginTop: 10,
     borderRadius: 10,
     marginStart: 8,
@@ -151,7 +170,8 @@ const styles = StyleSheet.create({
   rent_text: {
     textAlign: 'center',
     color: 'black',
-    marginTop: 40,
+    fontWeight: 'bold',
+    fontSize: 16
 
   },
   setting_icon:
@@ -160,6 +180,11 @@ const styles = StyleSheet.create({
     height: 30,
 
 
+  },
+  iconStyle: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   position_icon:
   {
