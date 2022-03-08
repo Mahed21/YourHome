@@ -28,10 +28,8 @@ const TotalExpense = (props) => {
     // console.log(count);
     // console.log(Data);
     return (
-        <View>
-            <View style={styles.expenseText}>
-                <Text style={styles.headerText}>Total Spend: Tk. {count}</Text>
-            </View>
+        <View style={styles.container}>
+            <Text style={styles.headerText}>Total Spend: Tk. {count}</Text>
             <ScrollView>
                 {
                     Data.map(data => <DisplayeAllExpense data={data} key={data._id}></DisplayeAllExpense>)
@@ -46,9 +44,8 @@ const TotalExpense = (props) => {
 export default TotalExpense
 
 const styles = StyleSheet.create({
-    expenseText:
-    {
-        alignItems: 'center',
+    container: {
+        marginBottom: 10
     },
 
     headerText: {

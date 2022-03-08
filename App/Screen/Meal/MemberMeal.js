@@ -1,26 +1,26 @@
-import { StyleSheet, Text, View,ScrollView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import DisplayAllMemberMeal from './DisplayAllMemberMeal'
 
 const MemberMeal = (props) => {
-    const { year,month } = props.route.params;
-    const [Data,setData]=useState([])
-    // console.log(year);
-    // console.log(month);
-    useEffect(()=>{
-        fetch('https://quiet-lowlands-93783.herokuapp.com/member')
-        .then(res=>res.json())
-        .then(data=>setData(data));
-    },[])
+  const { year, month } = props.route.params;
+  const [Data, setData] = useState([])
+  // console.log(year);
+  // console.log(month);
+  useEffect(() => {
+    fetch('https://quiet-lowlands-93783.herokuapp.com/member')
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, [])
   return (
     <View>
-      
+      <Text style={styles.headerText}>Total Meals</Text>
       <ScrollView>
-          
-          {
-              Data.map(data=><DisplayAllMemberMeal data={data} year={year}
-                month={month} key={data._id}></DisplayAllMemberMeal>)
-          }
+
+        {
+          Data.map(data => <DisplayAllMemberMeal data={data} year={year}
+            month={month} key={data._id}></DisplayAllMemberMeal>)
+        }
       </ScrollView>
     </View>
   )
@@ -28,4 +28,14 @@ const MemberMeal = (props) => {
 
 export default MemberMeal
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+  headerText: {
+    marginBottom: 10,
+    marginTop: 10,
+    color: 'black',
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: 'center'
+  },
+})

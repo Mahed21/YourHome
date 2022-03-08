@@ -32,15 +32,15 @@ const AddMember = () => {
       })
   }
   return (
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.imgDiv}>
+          <Image style={styles.img} source={{
+            uri: 'https://i.ibb.co/0cnkFmM/profile.png',
+          }} />
+        </View>
+        <StatusBar style="auto" />
 
-    <View style={styles.container}>
-      <View style={styles.imgDiv}>
-        <Image style={styles.img} source={{
-          uri: 'https://i.ibb.co/0cnkFmM/profile.png',
-        }} />
-      </View>
-      <StatusBar style="auto" />
-      <ScrollView>
         <View style={styles.addmember}>
           <Text
             style={styles.headerText}>Add Member</Text>
@@ -64,6 +64,7 @@ const AddMember = () => {
               placeholder="Email"
               placeholderTextColor="#003f5c"
               onChangeText={text => setEmail(text)}
+              keyboardType="email-address"
             />
           </View>
 
@@ -74,8 +75,9 @@ const AddMember = () => {
             <Text style={styles.loginText}>Submit</Text>
           </TouchableOpacity>
         </View>
-      </ScrollView>
-    </View>
+
+      </View >
+    </ScrollView>
   )
 }
 

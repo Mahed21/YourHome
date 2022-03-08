@@ -42,7 +42,7 @@ const Expense = () => {
       .then(data => {
         if (data.insertedId) {
           alert('Meals Added');
-          navigation.navigate('Home');
+          navigation.navigate('TotalExpense');
         }
       })
 
@@ -92,7 +92,6 @@ const Expense = () => {
             placeholder="Expense List"
             placeholderTextColor="#003f5c"
             onChangeText={text => setExpense(text)}
-            keyboardType="email-address"
           />
         </View>
         <View style={styles.inputView}>
@@ -101,7 +100,6 @@ const Expense = () => {
             placeholder="Total Cost"
             placeholderTextColor="#003f5c"
             onChangeText={text => setCost(text)}
-            keyboardType="email-address"
           />
         </View>
         <TouchableOpacity style={styles.loginBtn} onPress={PostExpense}>
