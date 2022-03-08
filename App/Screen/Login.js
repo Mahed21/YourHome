@@ -48,9 +48,7 @@ const Login = (props) => {
       <StatusBar style="auto" />
 
       <View >
-        <Image style={styles.img} source={{
-          uri: 'https://i.ibb.co/0cnkFmM/profile.png',
-        }} />
+        <Image style={styles.img} source={{ uri: 'https://i.ibb.co/0cnkFmM/profile.png', }} />
       </View>
       <View style={styles.inputView}>
         <View style={styles.iconStyle}>

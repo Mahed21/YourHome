@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Button,
   Image,
+  ScrollView
 } from "react-native";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -48,64 +49,66 @@ const Expense = () => {
   }
 
   return (
-    <View style={styles.expense}>
-      <Text style={styles.headerText}>Add Expenses</Text>
-      {/* input month */}
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Month"
-          placeholderTextColor="#003f5c"
-          onChangeText={text => setMonth(text)}
+    <ScrollView>
+      <View style={styles.expense}>
+        <Text style={styles.headerText}>Add Expenses</Text>
+        {/* input month */}
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Month"
+            placeholderTextColor="#003f5c"
+            onChangeText={text => setMonth(text)}
 
-        />
-      </View>
-      {/* input date */}
-      <View style={styles.inputView}>
+          />
+        </View>
+        {/* input date */}
+        <View style={styles.inputView}>
 
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Date"
-          placeholderTextColor="#003f5c"
-          onChangeText={text => setDate(text)}
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Date"
+            placeholderTextColor="#003f5c"
+            onChangeText={text => setDate(text)}
 
-        />
-      </View>
+          />
+        </View>
 
-      {/* input year */}
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Year"
-          placeholderTextColor="#003f5c"
-          onChangeText={text => setYear(text)}
+        {/* input year */}
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Year"
+            placeholderTextColor="#003f5c"
+            onChangeText={text => setYear(text)}
 
-        />
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            multiline={true}
+            numberOfLines={4}
+            placeholder="Expense List"
+            placeholderTextColor="#003f5c"
+            onChangeText={text => setExpense(text)}
+            keyboardType="email-address"
+          />
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            style={styles.TextInput}
+            placeholder="Total Cost"
+            placeholderTextColor="#003f5c"
+            onChangeText={text => setCost(text)}
+            keyboardType="email-address"
+          />
+        </View>
+        <TouchableOpacity style={styles.loginBtn} onPress={PostExpense}>
+          <Text style={styles.loginText}>Submit</Text>
+        </TouchableOpacity>
       </View>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          multiline={true}
-          numberOfLines={4}
-          placeholder="Expense List"
-          placeholderTextColor="#003f5c"
-          onChangeText={text => setExpense(text)}
-          keyboardType="email-address"
-        />
-      </View>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Total Cost"
-          placeholderTextColor="#003f5c"
-          onChangeText={text => setCost(text)}
-          keyboardType="email-address"
-        />
-      </View>
-      <TouchableOpacity style={styles.loginBtn} onPress={PostExpense}>
-        <Text style={styles.loginText}>Submit</Text>
-      </TouchableOpacity>
-    </View>
+    </ScrollView>
   )
 }
 
