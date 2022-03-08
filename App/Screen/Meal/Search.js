@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   expense: {
-    justifyContent: 'center',
     flex: 1,
     marginStart: '5%',
+    marginTop: '5%',
     marginEnd: '5%',
   },
   loginBtn: {

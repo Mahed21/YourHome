@@ -94,14 +94,14 @@ const Setting = () => {
               <Text style={styles.setting_Text}>Post your Home</Text>
             </View>
           </TouchableOpacity>
-
-          <View style={styles.row}>
-            <View style={styles.iconStyle}>
-              <MaterialCommunityIcons name={'food'} size={35} color="#000000" />
+          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+            <View style={styles.row}>
+              <View style={styles.iconStyle}>
+                <MaterialCommunityIcons name={'food'} size={35} color="#000000" />
+              </View>
+              <Text style={styles.setting_Text}>Total Meal</Text>
             </View>
-            <Text style={styles.setting_Text}>Total Meal</Text>
-          </View>
-
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("AddMeal")}>
             <View style={styles.row}>
               <View style={styles.iconStyle}>
@@ -156,12 +156,6 @@ const Setting = () => {
           </TouchableOpacity>
           {/* after second horizental end */}
         </View>
-
-
-
-
-
-
       </View>
     </ScrollView>
   )

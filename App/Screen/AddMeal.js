@@ -26,7 +26,7 @@ const AddMeal = () => {
     return (
         <View style={styles.addmealContainer}>
             <View style={styles.addmealtext}>
-                <Text style={styles.text}>Add Daily Meal</Text>
+                <Text style={styles.headerText}>Add Meals</Text>
             </View>
             {/* input month */}
             <View style={styles.inputView}>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     {
 
         alignItems: 'center',
-     
+
 
     }
     ,
@@ -118,14 +118,21 @@ const styles = StyleSheet.create({
         borderRightColor: '#ccc',
         borderRightWidth: 1,
     },
+    headerText: {
+        marginBottom: 10,
+        color: 'black',
+        fontSize: 25,
+        fontWeight: "bold",
+        textAlign: 'center'
+    },
     TextInput: {
         height: 50,
         flex: 1,
         padding: 10,
         textAlign: 'center'
     },
-    text:{
-     color:'#4630EB'
+    text: {
+        color: '#4630EB'
     }
 
 

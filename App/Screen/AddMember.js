@@ -42,7 +42,8 @@ const AddMember = () => {
       <StatusBar style="auto" />
       <ScrollView>
         <View style={styles.addmember}>
-          <Text style={styles.addmember_text}>Add Member</Text>
+          <Text
+            style={styles.headerText}>Add Member</Text>
           <View style={styles.inputView}>
             <View style={styles.iconStyle}>
               <AntDesign name={'solution1'} size={25} color="#666" />
@@ -105,6 +106,13 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
 
+  headerText: {
+    marginBottom: 10,
+    color: 'black',
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: 'center'
+  },
   iconStyle: {
     padding: 10,
     justifyContent: 'center',

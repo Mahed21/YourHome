@@ -52,7 +52,7 @@ const HomeScreen = (props) => {
               <View style={styles.iconStyle}>
                 <MaterialCommunityIcons name={'home-outline'} size={33} color="#000000" />
               </View>
-              <Text style={styles.rent_text}>Available mess rent</Text>
+              <Text style={styles.rent_text}>Available For Rent</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.rent_button}>

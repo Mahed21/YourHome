@@ -16,7 +16,7 @@ import AddMeal from "./AddMeal";
 const PostAllMeal = (props) => {
 
     const navigation = useNavigation()
-    const {  email } = props.data;
+    const { email } = props.data;
     const [Meal, setMeal] = useState();
 
     const handleMeal = () => {
@@ -66,14 +66,14 @@ const PostAllMeal = (props) => {
         </View> */}
                 <TextInput
                     style={styles.TextInput}
-                    placeholder="Add Meal"
+                    placeholder="Meals"
                     placeholderTextColor="#003f5c"
                     onChangeText={text => setMeal(text)}
                 />
             </View>
 
             <TouchableOpacity style={styles.loginBtn} onPress={handleMeal}>
-                <Text style={styles.loginText} >Submit</Text>
+                <Text style={styles.loginText} >Add</Text>
             </TouchableOpacity>
 
         </View>

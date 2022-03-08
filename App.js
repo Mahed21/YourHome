@@ -48,13 +48,13 @@ const App = () => {
         <Stack.Screen options={{ headerShown: true }} name="Setting" component={Setting} />
         <Stack.Screen options={{ headerShown: true }} name="Calculator" component={Calculator} />
         <Stack.Screen options={{ headerShown: true }} name="Calendar" component={Calendar} />
-        <Stack.Screen options={{ headerShown: false }} name="AddMember" component={AddMember} />
-        <Stack.Screen options={{ headerShown: false }} name="MessMember" component={MessMember} />
+        <Stack.Screen options={{ headerShown: true }} name="AddMember" component={AddMember} />
+        <Stack.Screen options={{ headerShown: true }} name="MessMember" component={MessMember} />
         <Stack.Screen options={{ headerShown: true }} name="AddMeal" component={AddMeal} />
-        <Stack.Screen options={{ headerShown: false }} name="Expense" component={Expense} />
-        <Stack.Screen options={{ headerShown: false }} name="TotalExpense" component={TotalExpense} />
-        <Stack.Screen options={{ headerShown: false }} name="Search" component={Search} />
-        <Stack.Screen options={{ headerShown: false }} name="MemberMeal" component={MemberMeal} />
+        <Stack.Screen options={{ headerShown: true }} name="Expense" component={Expense} />
+        <Stack.Screen options={{ headerShown: true }} name="TotalExpense" component={TotalExpense} />
+        <Stack.Screen options={{ headerShown: true }} name="Search" component={Search} />
+        <Stack.Screen options={{ headerShown: true }} name="MemberMeal" component={MemberMeal} />
 
 
 
