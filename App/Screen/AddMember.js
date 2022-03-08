@@ -26,8 +26,8 @@ const AddMember = () => {
       .then(res => res.json())
       .then(data => {
         if (data.insertedId) {
-          alert('Thank you for choose us your data is Successfully Collected');
-          navigation.replace("Home")
+          alert('New Member Added');
+          navigation.replace("MessMember")
         }
       })
   }
@@ -42,8 +42,7 @@ const AddMember = () => {
         <StatusBar style="auto" />
 
         <View style={styles.addmember}>
-          <Text
-            style={styles.headerText}>Add Member</Text>
+          <Text style={styles.headerText}>Add Member</Text>
           <View style={styles.inputView}>
             <View style={styles.iconStyle}>
               <AntDesign name={'solution1'} size={25} color="#666" />

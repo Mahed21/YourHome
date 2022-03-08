@@ -41,7 +41,7 @@ const Expense = () => {
       .then(res => res.json())
       .then(data => {
         if (data.insertedId) {
-          alert('Meals Added');
+          alert('Expenses Added');
           navigation.navigate('TotalExpense');
         }
       })
