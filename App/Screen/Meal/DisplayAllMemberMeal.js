@@ -5,8 +5,10 @@ import { useNavigation } from '@react-navigation/native';
 const DisplayAllMemberMeal = (props) => {
    //console.log(props.year)
    //console.log(props.month)
+   //console.log(props.mealRate)
     const navigation = useNavigation()
     let c=0;
+    let d=0;
     const [count,setCount]=useState()
     const{name}=props.data;
     //console.log(name);
@@ -61,7 +63,7 @@ const DisplayAllMemberMeal = (props) => {
             </View>
             <View style={styles.inputView2}>
             <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Individualmeal', {
-        year: props.year, month: props.month, name: name
+        year: props.year, month: props.month, name: name, mealRate: props.mealRate
       })}>
             <Text style={styles.loginText}>Details</Text>
             </TouchableOpacity>

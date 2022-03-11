@@ -4,12 +4,14 @@ import DisplayeIndividualMeal from './DisplayeIndividualMeal';
 
 
 const Individualmeal = (props) => {
-    const { year,month,name} = props.route.params;
+    const { year,month,name,mealRate} = props.route.params;
     // console.log(year);
     // console.log(month);
     // console.log(name);
+     // console.log(mealRate);
     const [indiMeal,setIndiMeal]=useState([])
     const [CountMeal,setCountMeal]= useState('')
+    const [indMealRate, setIndiMealRate]=useState('');
     const mealBucket=[];
     let count=0;
 
@@ -36,8 +38,10 @@ const Individualmeal = (props) => {
             
             setIndiMeal(mealBucket);
         })
+       setIndiMealRate(parseFloat((mealRate)*CountMeal).toFixed(2))
 
     },[])
+    
    
    
   return (
@@ -47,6 +51,7 @@ const Individualmeal = (props) => {
              <Text>Month: {month}</Text>
              <Text>Year: {year}</Text>
              <Text>Total Meal : {CountMeal}</Text>
+             <Text>Meal Cost : {indMealRate}</Text>
            
          </View>
         <View style={styles.body}>

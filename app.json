@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "YourHome",
+    "slug": "YourHome",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/project.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

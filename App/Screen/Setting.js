@@ -102,6 +102,8 @@ const Setting = () => {
               <Text style={styles.setting_Text}>Total Meal</Text>
             </View>
           </TouchableOpacity>
+          {
+            Admin?
           <TouchableOpacity onPress={() => navigation.navigate("AddMeal")}>
             <View style={styles.row}>
               <View style={styles.iconStyle}>
@@ -109,15 +111,16 @@ const Setting = () => {
               </View>
               <Text style={styles.setting_Text}>Add Meal</Text>
             </View>
-          </TouchableOpacity>
-          {
+          </TouchableOpacity>:<Text></Text>
+         }
+        {
             Admin ?
               <TouchableOpacity onPress={() => navigation.navigate("Expense")}>
                 <View style={styles.row}>
                   <View style={styles.iconStyle}>
                     <MaterialCommunityIcons name={'account-cash'} size={33} color="#000000" />
                   </View>
-                  <Text style={styles.setting_Text}>Expense</Text>
+                  <Text style={styles.setting_Text}>Add Expense</Text>
                 </View></TouchableOpacity> : <Text></Text>
           }
           {
