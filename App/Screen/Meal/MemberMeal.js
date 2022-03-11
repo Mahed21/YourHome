@@ -87,7 +87,7 @@ const MemberMeal = (props) => {
     <View>
       {
         loadingData || lodingTotalExpense || lodingTotalMeal ?
-          <Text>Lading</Text> :
+          <Text style={styles.LoadingText}>Loading</Text> :
           <View>
             <Text style={styles.headerText}>All Member Total Meals</Text>
             <Text style={styles.headerText}>Month : {month}</Text>
@@ -122,4 +122,11 @@ const styles = StyleSheet.create({
 
     textAlign: 'center'
   },
+  LoadingText:
+  {
+    marginTop: 10,
+    marginStart: '45%',
+    alignItems: 'center',
+
+  }
 })

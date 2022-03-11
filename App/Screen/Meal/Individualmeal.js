@@ -1,90 +1,102 @@
-import { StyleSheet, Text, View,ScrollView, TextInput } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import DisplayeIndividualMeal from './DisplayeIndividualMeal';
 
 
 const Individualmeal = (props) => {
-    const { year,month,name,mealRate} = props.route.params;
+    const { year, month, name, mealRate } = props.route.params;
     // console.log(year);
     // console.log(month);
     // console.log(name);
-     // console.log(mealRate);
-    const [indiMeal,setIndiMeal]=useState([])
-    const [CountMeal,setCountMeal]= useState('')
-    const [indMealRate, setIndiMealRate]=useState('');
-    const mealBucket=[];
-    let count=0;
+    // console.log(mealRate);
+    const [indiMeal, setIndiMeal] = useState([])
+    const [CountMeal, setCountMeal] = useState('')
+    const [indMealRate, setIndiMealRate] = useState('');
+    const [loadingData, setLodingData] = useState(true)
 
-    useEffect(()=>
-    {
+
+    const mealBucket = [];
+    let count = 0;
+
+    useEffect(() => {
         fetch('https://quiet-lowlands-93783.herokuapp.com/mealCount')
-        .then(res=>res.json())
-        .then(data=>{
-            for(var i=0; i<data.length; i++)
-            {
-                if(data[i].name===name)
-                {
-                    count+=parseInt(data[i].meal);
-                   setCountMeal(count.toString());
-                   
-                    if(data[i].year==year && data[i].month.toLowerCase()===month.toLowerCase())
-                    {
-                        mealBucket.push(data[i])
-                       
-                       
+            .then(res => res.json())
+            .then(data => {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].name === name) {
+                        count += parseInt(data[i].meal);
+                        setCountMeal(count.toString());
+                        setLodingData(false)
+
+                        if (data[i].year == year && data[i].month.toLowerCase() === month.toLowerCase()) {
+                            mealBucket.push(data[i])
+
+
+                        }
                     }
                 }
+
+                setIndiMeal(mealBucket);
+            })
+
+
+    }, [])
+
+    useEffect(() => {
+
+        setIndiMealRate(parseFloat((mealRate) * CountMeal).toFixed(2))
+    }, [CountMeal])
+
+
+
+    return (
+        <View>
+            {
+                loadingData ?
+                    <Text style={styles.LoadingText}>Loading</Text> :
+                    <View>
+                        <View style={styles.Individualtext}>
+                            <Text>{name}</Text>
+                            <Text>Month: {month}</Text>
+                            <Text>Year: {year}</Text>
+                            <Text>Total Meal : {CountMeal}</Text>
+                            <Text>Meal Cost : {indMealRate}</Text>
+
+                        </View>
+                        <View style={styles.body}>
+                            <View style={styles.inputView}>
+
+                                <TextInput
+                                    style={styles.TextInput}
+                                    placeholder={'Date'}
+                                    placeholderTextColor="#003f5c"
+
+
+                                />
+                            </View>
+                            <View style={styles.inputView}>
+
+                                <TextInput
+                                    style={styles.TextInput}
+                                    value={'Meal'}
+                                    placeholderTextColor="#003f5c"
+
+
+                                />
+                            </View>
+                        </View>
+                        <ScrollView>
+                            {
+                                indiMeal.map(meal => <DisplayeIndividualMeal meal={meal} key={meal._id} TotalMeal={count}></DisplayeIndividualMeal>)
+                            }
+
+
+                        </ScrollView>
+                    </View>
             }
-            
-            setIndiMeal(mealBucket);
-        })
-       setIndiMealRate(parseFloat((mealRate)*CountMeal).toFixed(2))
 
-    },[])
-    
-   
-   
-  return (
-    <View>
-         <View style={styles.Individualtext}>
-             <Text>{name}</Text>
-             <Text>Month: {month}</Text>
-             <Text>Year: {year}</Text>
-             <Text>Total Meal : {CountMeal}</Text>
-             <Text>Meal Cost : {indMealRate}</Text>
-           
-         </View>
-        <View style={styles.body}>
-        <View style={styles.inputView}>
-
-            <TextInput
-            style={styles.TextInput}
-            placeholder={'Date'}
-            placeholderTextColor="#003f5c"
-
-
-            />
-            </View>
-            <View style={styles.inputView}>
-
-                    <TextInput
-                    style={styles.TextInput}
-                    value={'Meal'}
-                    placeholderTextColor="#003f5c"
-                
-
-                    />
-            </View>
         </View>
-         <ScrollView>
-             {
-             indiMeal.map (meal=> <DisplayeIndividualMeal meal={meal}  key={meal._id} TotalMeal={count}></DisplayeIndividualMeal>)
-             }
-                    
-                
-            </ScrollView> 
-    </View>
-  )
+    )
 }
 
 export default Individualmeal
@@ -92,17 +104,17 @@ export default Individualmeal
 const styles = StyleSheet.create({
     Individualtext:
     {
-        marginTop:'10%',
-        alignItems:'center'
+        marginTop: '10%',
+        alignItems: 'center'
     },
     body:
     {
-        justifyContent:'center',
-        flex:1,
-        marginStart:'5%',
-        marginEnd:'5%',
-        flexDirection:'row',
-        marginBottom:'15%'
+        justifyContent: 'center',
+        flex: 1,
+        marginStart: '5%',
+        marginEnd: '5%',
+        flexDirection: 'row',
+        marginBottom: '15%'
     },
     inputView: {
         marginTop: 5,
@@ -113,12 +125,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         flexDirection: 'row',
         backgroundColor: '#fff',
-    
-      },
-      TextInput: {
+
+    },
+    TextInput: {
         height: 50,
         flex: 1,
         padding: 10,
         textAlign: 'center'
-      },
+    },
+    LoadingText:
+    {
+        marginTop: 10,
+        marginStart: '45%',
+        alignItems: 'center',
+
+    }
 })

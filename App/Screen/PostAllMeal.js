@@ -17,31 +17,36 @@ const PostAllMeal = (props) => {
 
     const navigation = useNavigation()
     const { email } = props.data;
-    const [Meal, setMeal] = useState(0);
+    const [Meal, setMeal] = useState(-1);
 
     const handleMeal = () => {
-        const name = props.data.name;
-        const meal = Meal;
-        const month = props.month
-        const day = props.date
-        const year = props.year
+        if (Meal == -1) {
+            alert('Please! provide a number')
+        }
+        else {
+            const name = props.data.name;
+            const meal = Meal;
+            const month = props.month
+            const day = props.date
+            const year = props.year
 
 
-        const newUser = { name, meal, month, day, year };
-        fetch('https://quiet-lowlands-93783.herokuapp.com/mealCount', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newUser)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    alert('Meals Added');
-                }
+            const newUser = { name, meal, month, day, year };
+            fetch('https://quiet-lowlands-93783.herokuapp.com/mealCount', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        alert('Meals Added');
+                    }
+                })
 
+        }
     }
 
 
@@ -72,7 +77,7 @@ const PostAllMeal = (props) => {
                 />
             </View>
 
-            <TouchableOpacity style={styles.loginBtn} onPress={handleMeal} disabled={Meal == 0}>
+            <TouchableOpacity style={styles.loginBtn} onPress={handleMeal}>
                 <Text style={styles.loginText} >Add</Text>
             </TouchableOpacity>
 

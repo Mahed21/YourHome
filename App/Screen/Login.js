@@ -74,13 +74,11 @@ const Login = (props) => {
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
-
-          secureTextEntry={true}
         />
       </View>
       <TouchableOpacity>
 
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
+
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn} >
         <View style={styles.iconStyle}>
