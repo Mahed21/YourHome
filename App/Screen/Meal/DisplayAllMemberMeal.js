@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, Text, View, TextInput,TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const DisplayAllMemberMeal = (props) => {
-    // console.log(props.year)
-    // console.log(props.month)
+   //console.log(props.year)
+   //console.log(props.month)
+    const navigation = useNavigation()
     let c=0;
     const [count,setCount]=useState()
     const{name}=props.data;
@@ -16,7 +18,7 @@ const DisplayAllMemberMeal = (props) => {
             {
                 if(data[i].name===name)
                 {
-                  console.log(data[i].meal)
+                  //console.log(data[i].meal)
                    
                     if(data[i].year==props.year && data[i].month.toLowerCase()===props.month.toLowerCase())
                     {
@@ -57,6 +59,15 @@ const DisplayAllMemberMeal = (props) => {
 
                 />
             </View>
+            <View style={styles.inputView2}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Individualmeal', {
+        year: props.year, month: props.month, name: name
+      })}>
+            <Text style={styles.loginText}>Details</Text>
+            </TouchableOpacity>
+            </View>
+
+            
            
 
     </View>
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
     inputView: {
         marginTop: 5,
         marginBottom: 10,
-        width: '80%',
+        width: '60%',
         borderColor: '#ccc',
         borderRadius: 3,
         borderWidth: 1,
@@ -79,6 +90,17 @@ const styles = StyleSheet.create({
     
       },
       inputView1: {
+        marginTop: 5,
+        marginBottom: 10,
+        width: '20%',
+        borderColor: '#ccc',
+        borderRadius: 3,
+        borderWidth: 1,
+        flexDirection: 'row',
+        backgroundColor: '#fff',
+    
+      },
+      inputView2: {
         marginTop: 5,
         marginBottom: 10,
         width: '20%',
@@ -102,4 +124,20 @@ const styles = StyleSheet.create({
         marginEnd:'5%',
         flexDirection:'row'
        },
+       loginText: {
+        flex: 1,
+        textAlign: 'center',
+        fontSize: 13,
+      },
+      loginBtn: {
+     
+       
+        width: '100%',
+        borderColor: '#ccc',
+        backgroundColor: '#f5e7ea',
+        borderRadius: 3,
+        borderWidth: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
 })

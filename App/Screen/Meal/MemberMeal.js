@@ -14,7 +14,10 @@ const MemberMeal = (props) => {
   }, [])
   return (
     <View>
-      <Text style={styles.headerText}>Total Meals</Text>
+      <Text style={styles.headerText}>All Member Total Meals</Text>
+      <Text style={styles.headerText}>Month : {month}</Text>
+      <Text style={styles.headerText}>Year: {year}</Text>
+      
       <ScrollView>
 
         {
@@ -31,11 +34,11 @@ export default MemberMeal
 const styles = StyleSheet.create({
 
   headerText: {
-    marginBottom: 10,
-    marginTop: 10,
+    marginTop:2,
+    marginBottom: 5,
     color: 'black',
-    fontSize: 25,
-    fontWeight: "bold",
+    fontSize: 18,
+    
     textAlign: 'center'
   },
 })
