@@ -17,7 +17,7 @@ const PostAllMeal = (props) => {
 
     const navigation = useNavigation()
     const { email } = props.data;
-    const [Meal, setMeal] = useState();
+    const [Meal, setMeal] = useState(0);
 
     const handleMeal = () => {
         const name = props.data.name;
@@ -72,7 +72,7 @@ const PostAllMeal = (props) => {
                 />
             </View>
 
-            <TouchableOpacity style={styles.loginBtn} onPress={handleMeal}>
+            <TouchableOpacity style={styles.loginBtn} onPress={handleMeal} disabled={Meal == 0}>
                 <Text style={styles.loginText} >Add</Text>
             </TouchableOpacity>
 
