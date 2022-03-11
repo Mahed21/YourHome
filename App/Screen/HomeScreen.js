@@ -26,7 +26,7 @@ const HomeScreen = (props) => {
         <ImageBackground source={image} resizeMode="cover" style={styles.image} imageStyle={{ borderBottomStartRadius: 20, borderBottomEndRadius: 20 }}>
           <View style={styles.position_icon}>
             <TouchableOpacity onPress={() => navigation.navigate("Setting")}>
-              <AntDesign name={'setting'} size={28} color="#fff" />
+              <AntDesign name={'setting'} size={32} color="#fff" />
             </TouchableOpacity>
           </View>
           <View style={styles.position_Text}>
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    height: 160,
+    height: 280,
 
   },
 
