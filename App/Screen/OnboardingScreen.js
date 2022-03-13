@@ -11,19 +11,19 @@ const OnboardingScreen = ({ navigation }) => {
             pages={[
                 {
                     backgroundColor: '#C1E1C1',
-                    image: <Image source={{uri:'https://i.ibb.co/NTkjkyC/landing3.png'}} />,
+                    image: <Image source={require('/Users/Administrator/Documents/react native projects/YourHome/assets/landing2.png')} />,
                     title: 'YourHome',
                     subtitle: 'An all-in-one app for Bachelors',
                 },
                 {
                     backgroundColor: '#fdeb93',
-                    image: <Image source={{uri:'https://i.ibb.co/NTkjkyC/landing3.png'}} />,
+                    image: <Image source={require('/Users/Administrator/Documents/react native projects/YourHome/assets/landing2.png')} />,
                     title: 'Rent a Home',
                     subtitle: 'Get a roof without hassle for Bachelors',
                 },
                 {
                     backgroundColor: '#e9bcbe',
-                    image: <Image source={{uri:'https://i.ibb.co/NTkjkyC/landing3.png'}} />,
+                    image: <Image source={require('/Users/Administrator/Documents/react native projects/YourHome/assets/landing3.png')} />,
                     title: 'Meal Count',
                     subtitle: 'Count your Monthly Meal Count',
                 },

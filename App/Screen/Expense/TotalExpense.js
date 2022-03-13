@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { Table, Row, Rows } from 'react-native-table-component';
 import DisplayeAllExpense from './DisplayeAllExpense';
 
 const TotalExpense = (props) => {
